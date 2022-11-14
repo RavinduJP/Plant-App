@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:plant_app/constants.dart';
-import 'package:plant_app/ui/root_page.dart';
-
-import 'login_page.dart';
+import 'signin_page.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -26,7 +24,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           Padding(
             padding: const EdgeInsets.only(right: 20, top: 20),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const SignIn()));
+              },
               child: const Text(
                 "Skip",
                 style: TextStyle(
@@ -87,7 +87,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         _pageController.nextPage(duration: Duration(milliseconds: 300), curve: Curves.easeIn);
                       }
                     } else {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const RootPage(),),);
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const SignIn(),),);
                     }
                   });
                 },
